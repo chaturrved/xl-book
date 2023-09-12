@@ -176,3 +176,16 @@ body {
     font-weight: bold;
     font-size: 0.9rem;
 }
+
+.color-prop {
+    position: relative;
+}
+
+.color-prop > input {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
