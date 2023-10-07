@@ -1,191 +1,210 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    padding: 0;
-    margin:0;
+  padding: 0;
+  margin: 0;
 }
 
 .page-actions-cont {
-    height: 3rem;
-    background-color: #218c74;
-    display: flex;
-    align-items: flex-end;
-    padding-left: 1rem;
+  height: 3rem;
+  background-color: #218c74;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 1rem;
 }
 
 .page-action {
-    margin: 0.5rem;
-    color: #f1f2f6;
+  margin: 0.5rem;
+  color: #f1f2f6;
 }
 
-.cellprop-actions-cont { 
-    height: 3rem;
-    background-color: #ecf0f1;
-    display: flex;
-    align-items: center;
-    padding-left: 1rem;
+.cellprop-actions-cont {
+  height: 3rem;
+  background-color: #ecf0f1;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
 }
 
 .cellprop-actions-cont > * {
-    display: inline-block;
-    margin-right: 1rem;
+  display: inline-block;
+  margin-right: 1rem;
 }
 
-.cellprop-actions-cont > select{
-    border: none;
-    border-radius: 2px;
-    outline: none;
+.cellprop-actions-cont > *:hover {
+  cursor: pointer;
+}
+
+.cellprop-actions-cont > select {
+  border: none;
+  border-radius: 2px;
+  outline: none;
 }
 
 .font-family-prop {
-    padding: 0.2rem;
+  padding: 0.2rem;
 }
 
 .font-size-prop {
-    padding: 0.2rem;
+  padding: 0.2rem;
+}
+
+.cell-content-cont {
+  height: 2rem;
+  background-color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 0.7rem;
+}
+
+.cell-content-cont > * {
+  display: inline-block;
+  outline: none;
+  border: none;
 }
 
 .formula-actions-cont {
-    height: 2rem;
-    background-color: #ecf0f1;
-    padding-left: 1rem;
-    display: flex;
-    align-items: center;
+  height: 2rem;
+  background-color: #ecf0f1;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .material-symbol-outlined {
-    width: 1.2rem;
+  width: 1.2rem;
 }
 
 .formula-actions-cont > * {
-    display: inline-block;
-    margin-right: 0.7rem;
+  display: inline-block;
+  margin-right: 0.7rem;
 }
 
 .formula-actions-cont > input {
-    outline: none;
-    border: none;
-    height: 70%;
+  outline: none;
+  border: none;
+  height: 70%;
 }
 
 .address-bar {
-    width: 5rem;
-    text-align: center;
+  width: 5rem;
+  text-align: center;
 }
 
 .formula-bar {
-    width: calc(100vw - 5rem - 2.1rem);
+  width: calc(100vw - 5rem - 2.1rem);
 }
 
 .grid-cont {
-    height: calc(100vh - 11rem);
-    position: relative;
-    overflow: scroll;
-    background-color: #ecf0f1;
+  height: calc(100vh - 9rem);
+  position: relative;
+  overflow: scroll;
+  background-color: #ecf0f1;
 }
 
 .top-left-dummy-box {
-    height: 2rem;
-    width: 2rem;
-    border: 1px solid #dfe4ea;
-    position: fixed;
-    z-index: 4;
-    background-color: darkgray;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid #dfe4ea;
+  position: fixed;
+  z-index: 4;
+  background-color: darkgray;
 }
 
 .address-col-cont {
-    position: sticky;
-    z-index: 3;
-    top: 2rem;
-    left: 0;
+  position: sticky;
+  top: 2rem;
+  left: 0;
 }
 
 .address-row-cont {
-    position: sticky;
-    top: 0;
-    left: 2rem;
-    display: flex;
+  position: sticky;
+  top: 0;
+  left: 2rem;
+  display: flex;
 }
 
 .cells-cont {
-    position: absolute;
-    top: 0;
-    left: 2rem;
+  position: absolute;
+  top: 0;
+  left: 2rem;
 }
 
 .address-col {
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #dfe4ea;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dfe4ea;
 }
 
 .address-row {
-    height: 2rem;
-    width: 5rem;
-    border: 1px solid #dfe4ea;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 2rem;
+  width: 5rem;
+  border: 1px solid #dfe4ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .row-cont {
-    display: flex;
+  display: flex;
 }
 
 .cell {
-    height: 2rem;
-    width: 5rem;
-    border: 1px solid #dfe4ea;
-    outline: none;
+  height: 2rem;
+  width: 5rem;
+  border: 1px solid #dfe4ea;
+  outline: none;
+  overflow: hidden;
 }
 
 .sheet-actions-cont {
-    height: 3rem;
-    background-color: #ecf0f1;
-    display: flex;
-    align-items: center;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+  height: 3rem;
+  background-color: #ecf0f1;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .sheet-add-icon {
-    width: 2vw;
+  width: 2vw;
 }
 
 .sheet-actions-cont > * {
-    display: inline-block;
+  display: inline-block;
 }
 
 .sheet-folder-cont {
-    display: flex;
-    align-items: center;
-    height: 80%;
-    width: calc(100vw - 2vw);
-    gap: 1rem;
-    padding-left: 2vw;
+  display: flex;
+  align-items: center;
+  height: 80%;
+  width: calc(100vw - 2vw);
+  gap: 1rem;
+  padding-left: 2vw;
 }
 
 .sheet-folder {
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    font-weight: bold;
-    font-size: 0.9rem;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .color-prop {
-    position: relative;
+  position: relative;
 }
 
 .color-prop > input {
-    position: absolute;
-    opacity: 0;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
+  position: absolute;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
