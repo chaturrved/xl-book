@@ -5,6 +5,14 @@ let addressBar = document.querySelector(".address-bar");
 
 let addressColCont = document.querySelector(".address-col-cont");
 
+//update cell through content bar
+addressBar.addEventListener("keydown", (e) => {
+  let address = addressBar.value;
+  let [cell, cellProps] = activeCell(address);
+  //Modification of data and ui
+  cellProps.value = addressBar.value;
+});
+
 for (let i = 0; i < rows; i++) {
   let addressCell = document.createElement("div");
   addressCell.setAttribute("class", "address-col");

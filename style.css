@@ -61,6 +61,7 @@ body {
 }
 
 .cell-content-cont > * {
+  height: 70%;
   display: inline-block;
   outline: none;
   border: none;
@@ -99,7 +100,7 @@ body {
 }
 
 .grid-cont {
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 13rem);
   position: relative;
   overflow: scroll;
   background-color: #ecf0f1;

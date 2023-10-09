@@ -12,7 +12,10 @@ for (let i = 0; i < rows; i++) {
       fontFamily: "monospace",
       fontSize: "14",
       fontColor: "#000000",
-      BGcolor: "transparent",
+      BGcolor: "#ecf0f1",
+      value: "",
+      formula: "",
+      children: [],
     };
     sheetRow.push(cell);
   }
@@ -172,6 +175,7 @@ function addPropertyReflectionListener(cell) {
     BGcolor.value = cellProps.BGcolor;
     changeAlignmentUI(cellProps.alignment);
     cellContent.value = cell.innerText;
+    formulaBar.value = cellProps.formula;
   });
 }
 
