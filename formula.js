@@ -41,7 +41,13 @@ formulaBar.addEventListener("keydown", (e) => {
         removeRelationship(parent, addressBar.value);
       }
     });
-
+    addChildToGraphComponent(formula, addressBar.value);
+    let isCyclic = isGraphCyclic(graphComponentMatrix);
+    if (isCyclic == true) {
+      alert("Your dependency chain is cyclic. Not Allowed!");
+      removeChildFromGraphComponent(formula);
+      return;
+    }
     //evaluate current formula
     let evaluatedValue = evaluateFormula(formula);
     establishRelationship(addressBar.value, formula);
@@ -49,6 +55,30 @@ formulaBar.addEventListener("keydown", (e) => {
     updateChildren(addressBar.value);
   }
 });
+
+function addChildToGraphComponent(formula, childAddress) {
+  let [crid, ccid] = decodeCellFromAddress(childAddress);
+  let encodedFormula = formula.split(" ");
+  for (let i = 0; i < encodedFormula.length; i++) {
+    let asciiVal = encodedFormula[i].charCodeAt(0);
+    if (asciiVal >= 65 && asciiVal <= 90) {
+      let [prid, pcid] = decodeCellFromAddress(encodedFormula[i]);
+      graphComponentMatrix[prid][pcid].push([crid, ccid]);
+    }
+  }
+}
+
+function removeChildFromGraphComponent(formula) {
+  let encodedFormula = formula.split(" ");
+
+  for (let i = 0; i < encodedFormula.length; i++) {
+    let asciiVal = encodedFormula[i].charCodeAt(0);
+    if (asciiVal >= 65 && asciiVal <= 80) {
+      let [prid, pcid] = decodeCellFromAddress(encodedFormula[i]);
+      graphComponentMatrix[prid][pcid].pop();
+    }
+  }
+}
 
 function updateChildren(parentAddress) {
   let [prid, pcid] = decodeCellFromAddress(parentAddress);
