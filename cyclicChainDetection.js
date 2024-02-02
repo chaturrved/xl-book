@@ -35,12 +35,12 @@ function isGraphCyclic(graphComponentMat) {
           visited,
           dfsVisited,
         );
-        if (response) return true;
+        if (response) return [i, j];
       }
     }
   }
 
-  return false;
+  return null;
 }
 
 function dfsCycleDetection(graphComponentMat, row, col, visited, dfsVisited) {

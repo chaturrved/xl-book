@@ -27,7 +27,7 @@ for (let i = 0; i < rows; i++) {
 
 let formulaBar = document.querySelector(".formula-bar");
 
-formulaBar.addEventListener("keydown", (e) => {
+formulaBar.addEventListener("keydown", async (e) => {
   const formula = formulaBar.value;
   if (e.key == "Enter" && formula) {
     //remove relationship
@@ -42,9 +42,15 @@ formulaBar.addEventListener("keydown", (e) => {
       }
     });
     addChildToGraphComponent(formula, addressBar.value);
-    let isCyclic = isGraphCyclic(graphComponentMatrix);
-    if (isCyclic == true) {
-      alert("Your dependency chain is cyclic. Not Allowed!");
+    let cycleNode = isGraphCyclic(graphComponentMatrix);
+    if (cycleNode) {
+      let response = confirm(
+        "Your dependency chain is cyclic. Which is not allowed! Do you want to trace the path?",
+      );
+      while (response === true) {
+        await tracePath(graphComponentMatrix, cycleNode);
+        response = confirm("Do you want to trace cyclic path again?");
+      }
       removeChildFromGraphComponent(formula);
       return;
     }
