@@ -177,6 +177,10 @@ body {
   width: 2vw;
 }
 
+.sheet-add-icon:hover {
+  cursor: default;
+}
+
 .sheet-actions-cont > * {
   display: inline-block;
 }
@@ -188,13 +192,23 @@ body {
   width: calc(100vw - 2vw);
   gap: 1rem;
   padding-left: 2vw;
+  overflow: auto;
 }
 
 .sheet-folder {
+  height: 80%;
+  background-color: lightblue;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   font-weight: bold;
   font-size: 0.9rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sheet-content {
+  width: 5rem;
 }
 
 .color-prop {

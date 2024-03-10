@@ -1,26 +1,33 @@
 //storage
+let sheetDBCollection = [];
 let sheetDB = [];
 
-for (let i = 0; i < rows; i++) {
-  let sheetRow = [];
-  for (let j = 0; j < cols; j++) {
-    let cell = {
-      bold: false,
-      italic: false,
-      underline: false,
-      alignment: "left",
-      fontFamily: "monospace",
-      fontSize: "14",
-      fontColor: "#000000",
-      BGcolor: "#ecf0f1",
-      value: "",
-      formula: "",
-      children: [],
-    };
-    sheetRow.push(cell);
-  }
-  sheetDB.push(sheetRow);
+{
+  let addSheetBtn = document.querySelector(".sheet-add-icon");
+  addSheetBtn.click();
+  handleSheetToggle();
 }
+
+// for (let i = 0; i < rows; i++) {
+//   let sheetRow = [];
+//   for (let j = 0; j < cols; j++) {
+//     let cell = {
+//       bold: false,
+//       italic: false,
+//       underline: false,
+//       alignment: "left",
+//       fontFamily: "monospace",
+//       fontSize: "14",
+//       fontColor: "#000000",
+//       BGcolor: "#ecf0f1",
+//       value: "",
+//       formula: "",
+//       children: [],
+//     };
+//     sheetRow.push(cell);
+//   }
+//   sheetDB.push(sheetRow);
+// }
 
 //color variables for UI
 let activeColor = "#d1d8e0";
@@ -149,7 +156,8 @@ allCells.forEach((cell) => {
 function addPropertyReflectionListener(cell) {
   cell.addEventListener("click", (e) => {
     let address = addressBar.value;
-    let [cell, cellProps] = activeCell(address);
+    let [ridx, cidx] = decodeCellFromAddress(address);
+    let cellProps = sheetDB[ridx][cidx];
 
     //apply properties to cells
     cell.style.fontWeight = cellProps.bold ? "bold" : "normal";
@@ -173,6 +181,7 @@ function addPropertyReflectionListener(cell) {
     fontFamily.value = cellProps.fontFamily;
     fontColor.value = cellProps.fontColor;
     BGcolor.value = cellProps.BGcolor;
+    cell.innerText = cellProps.value;
     changeAlignmentUI(cellProps.alignment);
     cellContent.value = cell.innerText;
     formulaBar.value = cellProps.formula;
